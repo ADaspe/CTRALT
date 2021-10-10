@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GamesRules
   m_EditorClassIdentifier: 
   timeBetweenElements: 0
-  timeToLoseIfButtonIsReleased: 0
-  timeToLoseIfButtonIsNotPressed: 0
-  blinkingFrequency: 0
-  ledPins: 
+  timeToLoseIfButtonIsReleased: 2
+  timeToLoseIfButtonIsNotPressed: 5
+  blinkingFrequency: 4
+  ledPins: 08000000
+  buttonPins: 02000000
