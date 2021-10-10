@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720884688345560}
   - component: {fileID: 114023058375386772}
+  - component: {fileID: 7155884311269778670}
   m_Layer: 0
   m_Name: Uduino
   m_TagString: Untagged
@@ -95,3 +96,26 @@ MonoBehaviour:
   interfaceType: 2
   uduinoWiFiBoards: []
   isApplicationQuiting: 0
+--- !u!114 &7155884311269778670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169019389771402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af3eaa9d4fa36641bca52550c9f7507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rules: {fileID: 0}
+  sequence: []
+  gameOver: 0
+  gameStarted: 0
+  currentElement: {fileID: 0}
+  currentElementIndex: 0
+  hasPressedButton: 0
+  timeBeforeNextIntruction: 0
+  currentElementStartingTime: 0
+  timeSinceButtonReleased: 0
+  timeSinceButtonBlink: 0
