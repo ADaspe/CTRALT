@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af3eaa9d4fa36641bca52550c9f7507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rules: {fileID: 0}
+  rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
   sequence: []
   gameOver: 0
   gameStarted: 0

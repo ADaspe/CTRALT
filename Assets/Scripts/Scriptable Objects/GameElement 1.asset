@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: GameElement 1
   m_EditorClassIdentifier: 
   elementTime: 5
-  type: 0
+  type: 1
   state: 1
   audio: {fileID: 0}
   timeToPlayAudio: 0
-  buttonPin: 0
-  ledPin: 0
+  buttonChar: 90
+  input: 122
+  ledPin: 9

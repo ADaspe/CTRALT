@@ -29,9 +29,8 @@ public class AXD_GameManager : MonoBehaviour
         {
             UduinoManager.Instance.pinMode(pin, PinMode.Output);
         }
-        foreach (int pin in rules.buttonPins)
-        {
-            UduinoManager.Instance.pinMode(pin, PinMode.Input_pullup);
+        foreach (AXD_GameElement element in sequence){
+            element.state = AXD_GameElement.State.Off;
         }
         UduinoManager.Instance.pinMode(8,PinMode.Output);
     }
@@ -40,8 +39,9 @@ public class AXD_GameManager : MonoBehaviour
     {
         if (!gameOver && gameStarted)
         {
-            //Si aucun élément n'est activé, on prend le prochain
-            if ((currentElement == null) || currentElementStartingTime + currentElement.elementTime <= Time.time)
+            //Si aucun ï¿½lï¿½ment n'est activï¿½, on prend le prochain
+            if ((currentElement == null) || 
+            currentElementStartingTime + currentElement.elementTime <= Time.time)
             {
                 Debug.Log("No Element");
                 if(currentElement == null || currentElementIndex+1 == sequence.Count)
@@ -54,7 +54,7 @@ public class AXD_GameManager : MonoBehaviour
                     currentElementIndex++;
                 }
                 currentElement = sequence[currentElementIndex];
-                //Dans le cas où il faut une instruction pour enlever la main d'un bouton
+
                 if(currentElement.state == AXD_GameElement.State.On)
                 {
                     currentElement.SetOff();
@@ -63,23 +63,20 @@ public class AXD_GameManager : MonoBehaviour
                 {
                     currentElement.SetOn();
                 }
-                //Dans le cas où il n'en faut pas
-                /*
-                 currentElement.SetOn();
-                //Il faut rajouter le compteur de temps
-                 */
 
                 currentElementStartingTime = Time.time;
                 Debug.Log("Current element = " + currentElement.name);
 
             }
 
-            //On active l'élément (Si c'est une pause, on attend, si c'est un bouton, on active le blink, jusqu'à la pression du joueur, puis on active le continu)
-            if (currentElement.type == AXD_GameElement.Type.ButtonInstruction && currentElement.state == AXD_GameElement.State.On)
+            //On active l'Ã©lÃ©ment (Si c'est une pause, on attend, si c'est un bouton, on active le blink, jusqu'ï¿½ la pression du joueur, puis on active le continu)
+            if (currentElement.type == AXD_GameElement.Type.ButtonInstruction 
+            && currentElement.state == AXD_GameElement.State.On)
             {
-                if (UduinoManager.Instance.digitalRead(currentElement.buttonPin) == 0)
+                //Debug.Log("AppuyÃ© ? "+Input.GetKey(currentElement.input));
+                if (!(Input.GetKey(currentElement.input)))
                 {
-                    //Si c'est pas appuyé, on fait clignoter
+                    //Si c'est pas appuyÃ©, on fait clignoter
                     StartCoroutine(BlinkLight(currentElement));
                     if (hasPressedButton)
                     {
@@ -90,39 +87,38 @@ public class AXD_GameManager : MonoBehaviour
                         timeSinceButtonBlink += Time.deltaTime;
                     }
                 }
-                else if (UduinoManager.Instance.digitalRead(currentElement.buttonPin) == 1)
+                else 
                 {
-                    //Si c'est appuyé, on met la lumière
+                    //Si c'est appuyÃ©, on met la lumiÃ¨re
                     LightOn(currentElement.ledPin);
                     if (!hasPressedButton)
                     {
                         hasPressedButton = true;
                     }
-                    //Si le joueur appuie, on réinitialise les délais de game over
+                    //Si le joueur appuie, on rÃ©initialise les dÃ©lais de game over
                     timeSinceButtonReleased = 0;
                     timeSinceButtonBlink = 0;
                 }
             }
-            else if (currentElement.type == AXD_GameElement.Type.Pause && timeBeforeNextIntruction < Time.time)
+            else if (currentElement.type == AXD_GameElement.Type.Pause 
+            && timeBeforeNextIntruction < Time.time)
             {
                 Debug.Log("Pause");
                 timeBeforeNextIntruction = Time.time + currentElement.elementTime;
             }
-            //Si le joueur relâche trop longtemps ou n'appuie pas sur le bouton, il perd la partie
-            if (timeSinceButtonReleased >= rules.timeToLoseIfButtonIsReleased || timeSinceButtonBlink >= rules.timeToLoseIfButtonIsNotPressed)
+            //Si le joueur relï¿½che trop longtemps ou n'appuie pas sur le bouton, il perd la partie
+            if (timeSinceButtonReleased >= rules.timeToLoseIfButtonIsReleased 
+            || timeSinceButtonBlink >= rules.timeToLoseIfButtonIsNotPressed)
             {
-
                 GameOver();
-            }
-
-
+            } 
         }
     }
-
+    
     public void GameOver()
     {
         Debug.Log("GameOver");
-        // à définir comment on matérialise le game over;
+        // ï¿½ dï¿½finir comment on matï¿½rialise le game over;
         gameOver = true;
         
     }
@@ -140,14 +136,13 @@ public class AXD_GameManager : MonoBehaviour
 
     public IEnumerator BlinkLight(AXD_GameElement element)
     {
-        while (UduinoManager.Instance.digitalRead(element.buttonPin) == 0 && element.state == AXD_GameElement.State.On && gameStarted && !gameOver) {
+        while (!(Input.GetKey(currentElement.input)) 
+        && element.state == AXD_GameElement.State.On 
+        && gameStarted 
+        && !gameOver) {
             LightOn(element.ledPin);
             yield return new WaitForSeconds(1/rules.blinkingFrequency);
             LightOff(element.ledPin);
         }
     }
-
-
-    
-
 }

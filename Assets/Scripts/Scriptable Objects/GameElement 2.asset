@@ -17,5 +17,5 @@ MonoBehaviour:
   state: 1
   audio: {fileID: 0}
   timeToPlayAudio: 0
-  buttonPin: 0
+  buttonChar: 0
   ledPin: 0

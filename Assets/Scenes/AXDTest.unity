@@ -184,11 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].prevPin
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].sendValue
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].currentPin
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].arduinoName
@@ -219,25 +219,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: rules
-      value: 
-      objectReference: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: sequence.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: sequence.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 9bdebc89d74cb714d9896c5f70104ed5, type: 2}
+      objectReference: {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
     - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: sequence.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 9bdebc89d74cb714d9896c5f70104ed5, type: 2}
+      objectReference: {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
     - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: sequence.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 9bdebc89d74cb714d9896c5f70104ed5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
+      propertyPath: sequence.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
+    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
+      propertyPath: sequence.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
 --- !u!1 &1237073159

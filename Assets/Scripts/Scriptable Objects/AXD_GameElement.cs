@@ -28,7 +28,8 @@ public class AXD_GameElement : ScriptableObject
     public float timeToPlayAudio;
 
     [Header("Arduino")]
-    public int buttonPin;
+    public char buttonChar;
+    public KeyCode input;
     public int ledPin;
 
     public void SetOn()

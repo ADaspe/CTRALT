@@ -16,5 +16,5 @@ MonoBehaviour:
   timeToLoseIfButtonIsReleased: 2
   timeToLoseIfButtonIsNotPressed: 5
   blinkingFrequency: 4
-  ledPins: 08000000
-  buttonPins: 02000000
+  ledPins: 0800000009000000
+  buttonChars: 
