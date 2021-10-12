@@ -184,11 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].prevPin
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].sendValue
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].currentPin
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
       propertyPath: pins.Array.data[0].arduinoName
@@ -218,30 +218,6 @@ PrefabInstance:
       propertyPath: presentExtentionsMap.values.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
-    - target: {fileID: 7155884311269778670, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
-      propertyPath: sequence.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
 --- !u!1 &1237073159
@@ -255,6 +231,7 @@ GameObject:
   - component: {fileID: 1237073162}
   - component: {fileID: 1237073161}
   - component: {fileID: 1237073160}
+  - component: {fileID: 1237073163}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -327,6 +304,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237073163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237073159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1744810385
 GameObject:
   m_ObjectHideFlags: 0

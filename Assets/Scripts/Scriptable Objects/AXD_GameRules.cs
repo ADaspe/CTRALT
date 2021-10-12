@@ -10,5 +10,4 @@ public class AXD_GameRules : ScriptableObject
     public float timeToLoseIfButtonIsNotPressed;
     public float blinkingFrequency;
     public int[] ledPins;
-    public char[] buttonChars;
 }

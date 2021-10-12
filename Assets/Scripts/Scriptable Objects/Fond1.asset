@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 124b64a187bc7884ca4cd1b9275441b2, type: 3}
-  m_Name: GameElement 2
+  m_Name: Fond1
   m_EditorClassIdentifier: 
   elementTime: 5
   type: 0
   state: 1
+  rules: {fileID: 0}
   audio: {fileID: 0}
   timeToPlayAudio: 0
   buttonChar: 0
+  input: 0
   ledPin: 0

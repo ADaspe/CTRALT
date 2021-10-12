@@ -22,6 +22,7 @@ public class AXD_GameElement : ScriptableObject
     public float elementTime = 5f;
     public Type type;
     public State state = State.Off;
+    public AXD_GameRules rules;
 
     [Header("Audio")]
     public AudioSource audio;
@@ -46,6 +47,29 @@ public class AXD_GameElement : ScriptableObject
         {
             UduinoManager.Instance.digitalWrite(ledPin, Uduino.State.LOW);
             state = State.Off;
+        }
+    }
+    public void LightOn()
+    {
+        UduinoManager.Instance.digitalWrite(ledPin, Uduino.State.HIGH);
+    }
+
+    public void LightOff()
+    {
+        UduinoManager.Instance.digitalWrite(ledPin, Uduino.State.LOW);
+    }
+    
+    public IEnumerator Verify(){
+        while(state == State.On){
+
+            if(Input.GetKey(input)){
+                UduinoManager.Instance.digitalWrite(ledPin, Uduino.State.HIGH);
+                yield return new WaitForSeconds(0.1f);
+            }else{
+                LightOn();
+                yield return new WaitForSeconds(1/rules.blinkingFrequency);
+                LightOff();
+            }
         }
     }
 }

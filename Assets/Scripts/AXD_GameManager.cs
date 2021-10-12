@@ -28,18 +28,19 @@ public class AXD_GameManager : MonoBehaviour
         foreach (int pin in rules.ledPins)
         {
             UduinoManager.Instance.pinMode(pin, PinMode.Output);
+            UduinoManager.Instance.digitalWrite(pin, State.LOW);
         }
         foreach (AXD_GameElement element in sequence){
             element.state = AXD_GameElement.State.Off;
         }
-        UduinoManager.Instance.pinMode(8,PinMode.Output);
+        //StartCoroutine(TestAnalog());
     }
 
     private void Update()
     {
+        //TestAnalog();
         if (!gameOver && gameStarted)
         {
-            //Si aucun �l�ment n'est activ�, on prend le prochain
             if ((currentElement == null) || 
             currentElementStartingTime + currentElement.elementTime <= Time.time)
             {
@@ -62,6 +63,7 @@ public class AXD_GameManager : MonoBehaviour
                 else
                 {
                     currentElement.SetOn();
+                    StartCoroutine(currentElement.Verify());
                 }
 
                 currentElementStartingTime = Time.time;
@@ -76,8 +78,6 @@ public class AXD_GameManager : MonoBehaviour
                 //Debug.Log("Appuyé ? "+Input.GetKey(currentElement.input));
                 if (!(Input.GetKey(currentElement.input)))
                 {
-                    //Si c'est pas appuyé, on fait clignoter
-                    StartCoroutine(BlinkLight(currentElement));
                     if (hasPressedButton)
                     {
                         timeSinceButtonReleased += Time.deltaTime;
@@ -90,7 +90,7 @@ public class AXD_GameManager : MonoBehaviour
                 else 
                 {
                     //Si c'est appuyé, on met la lumière
-                    LightOn(currentElement.ledPin);
+                    currentElement.LightOn();
                     if (!hasPressedButton)
                     {
                         hasPressedButton = true;
@@ -119,22 +119,23 @@ public class AXD_GameManager : MonoBehaviour
     {
         Debug.Log("GameOver");
         // � d�finir comment on mat�rialise le game over;
+        foreach (int pin in rules.ledPins){
+            UduinoManager.Instance.digitalWrite(pin, State.LOW);
+        }
         gameOver = true;
         
     }
 
-    public void LightOn(int pin)
-    {
-        UduinoManager.Instance.digitalWrite(pin, State.HIGH);
+    public IEnumerator TestAnalog(){
+        UduinoManager.Instance.pinMode(14, PinMode.Output);
+        yield return new WaitForSeconds(0.5f);
+        UduinoManager.Instance.digitalWrite(14, State.HIGH);
+        UduinoManager.Instance.pinMode(14, PinMode.Output);
+        yield return new WaitForSeconds(0.5f);
+        UduinoManager.Instance.digitalWrite(14, State.HIGH);
     }
 
-    public void LightOff(int pin)
-    {
-        UduinoManager.Instance.digitalWrite(pin, State.LOW);
-    }
-
-
-    public IEnumerator BlinkLight(AXD_GameElement element)
+    /*public IEnumerator BlinkLight(AXD_GameElement element)
     {
         while (!(Input.GetKey(currentElement.input)) 
         && element.state == AXD_GameElement.State.On 
@@ -144,5 +145,5 @@ public class AXD_GameManager : MonoBehaviour
             yield return new WaitForSeconds(1/rules.blinkingFrequency);
             LightOff(element.ledPin);
         }
-    }
+    }*/
 }
