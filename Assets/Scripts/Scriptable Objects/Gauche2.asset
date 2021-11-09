@@ -18,6 +18,6 @@ MonoBehaviour:
   rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
   audio: {fileID: 0}
   timeToPlayAudio: 0
-  buttonChar: 85
-  input: 117
-  ledPin: 8
+  buttonChar: 90
+  input: 122
+  ledPin: 1

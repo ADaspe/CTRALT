@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1169019389771402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4720884688345560}
+  - component: {fileID: 114023058375386772}
+  - component: {fileID: 7155884311269778670}
+  m_Layer: 0
+  m_Name: Uduino test
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 8c53aeac11c2023478cfc6f967a46c53, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4720884688345560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169019389771402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114023058375386772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169019389771402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5a4e52dfc3107499249fb2d34a1bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pins: []
+  activeExtentionsMap:
+    keys:
+    - UduinoDevice_DesktopSerial
+    values: 01
+  presentExtentionsMap:
+    keys:
+    - UduinoDevice_DesktopSerial
+    values: 01
+  ManagerState: 0
+  debugLevel: 0
+  baudRate: 9600
+  limitSendRate: 0
+  readTimeout: 30
+  writeTimeout: 30
+  threadIdleDelay: 16
+  alwaysRead: 1
+  readAfterCommand: 1
+  skipMessageQueue: 0
+  messageQueueLength: 10
+  defaultArduinoBoardType: 0
+  useCuPort: 0
+  forcePinEditor: 0
+  sendRateDelay: 20
+  discoverTries: 10
+  autoDiscover: 1
+  delayBeforeDiscover: 0.5
+  stopAllOnQuit: 1
+  stopAllOnPause: 0
+  autoReconnect: 0
+  autoReconnectDelay: 5
+  shouldReconnect: 0
+  blackListedPorts: []
+  OnDataReceivedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBoardConnectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBoardDisconnectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  displayAndroidTextGUI: 0
+  autoConnectToLastDevice: 1
+  bleScanDuration: 3
+  interfaceType: 2
+  uduinoWiFiBoards: []
+  isApplicationQuiting: 0
+--- !u!114 &7155884311269778670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169019389771402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af3eaa9d4fa36641bca52550c9f7507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
+  sequence:
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: da7c7bd367fa54a4384d8d4ef95d7730, type: 2}
+  - {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: da7c7bd367fa54a4384d8d4ef95d7730, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 2c641b91628e328449d6df6e4cd20c3c, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 98de7fe5f34c6d342b8fc91154f48f7f, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 2c641b91628e328449d6df6e4cd20c3c, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: cec2ff1011be1b44fab958aae9a81d55, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
+  - {fileID: 11400000, guid: 3aa2c6811dfbb7a43907c466fe6f9342, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: da7c7bd367fa54a4384d8d4ef95d7730, type: 2}
+  - {fileID: 11400000, guid: dc44f13ad5fd2dc429c9101a96efb180, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: da7c7bd367fa54a4384d8d4ef95d7730, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: 3c8211451d667e34991561ec70ebe50c, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 2c641b91628e328449d6df6e4cd20c3c, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: 98de7fe5f34c6d342b8fc91154f48f7f, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: 82fda164e09bb02499bada1550a02b9d, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 2c641b91628e328449d6df6e4cd20c3c, type: 2}
+  - {fileID: 11400000, guid: 5461d0d4fad510345a47e1da9c5449cc, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 145def0327020f24e8e4556ac1849db4, type: 2}
+  - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
+  - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
+  - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
+  gameOver: 0
+  gameStarted: 0
+  currentElement: {fileID: 0}
+  currentElementIndex: 0
+  hasPressedButton: 0
+  timeBeforeNextIntruction: 0
+  currentElementStartingTime: 0
+  timeSinceButtonReleased: 0
+  timeSinceButtonBlink: 0
