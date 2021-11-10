@@ -20,4 +20,4 @@ MonoBehaviour:
   timeToPlayAudio: 0
   buttonChar: 90
   input: 122
-  ledPin: 1
+  ledPin: 3

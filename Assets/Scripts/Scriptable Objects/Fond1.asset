@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Fond1
   m_EditorClassIdentifier: 
   elementTime: 5
-  type: 0
+  type: 1
   state: 1
-  rules: {fileID: 0}
+  rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
   audio: {fileID: 0}
   timeToPlayAudio: 0
   buttonChar: 82
   input: 114
-  ledPin: 3
+  ledPin: 5

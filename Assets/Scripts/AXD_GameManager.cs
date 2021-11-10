@@ -36,7 +36,7 @@ public class AXD_GameManager : MonoBehaviour
         //StartCoroutine(TestAnalog());
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //TestAnalog();
         if (!gameOver && gameStarted)
@@ -51,7 +51,6 @@ public class AXD_GameManager : MonoBehaviour
                 }
                 else
                 {
-                    
                     currentElementIndex++;
                 }
                 currentElement = sequence[currentElementIndex];
@@ -75,9 +74,10 @@ public class AXD_GameManager : MonoBehaviour
             if (currentElement.type == AXD_GameElement.Type.ButtonInstruction 
             && currentElement.state == AXD_GameElement.State.On)
             {
-                //Debug.Log("Appuyé ? "+Input.GetKey(currentElement.input));
+                Debug.Log("Anykey ?" + Input.anyKey);
                 if (!(Input.GetKey(currentElement.input)))
                 {
+                    Debug.Log("Appuyé ? False");
                     if (hasPressedButton)
                     {
                         timeSinceButtonReleased += Time.deltaTime;
@@ -89,6 +89,7 @@ public class AXD_GameManager : MonoBehaviour
                 }
                 else 
                 {
+                    Debug.Log("Appuyé ? True");
                     //Si c'est appuyé, on met la lumière
                     currentElement.LightOn();
                     if (!hasPressedButton)

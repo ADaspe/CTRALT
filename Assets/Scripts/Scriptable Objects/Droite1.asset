@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Droite1
   m_EditorClassIdentifier: 
   elementTime: 5
-  type: 0
+  type: 1
   state: 1
-  rules: {fileID: 0}
+  rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
   audio: {fileID: 0}
   timeToPlayAudio: 0
   buttonChar: 84
   input: 116
-  ledPin: 4
+  ledPin: 6
