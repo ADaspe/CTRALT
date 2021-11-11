@@ -9,8 +9,13 @@ public class AXD_GameManager : MonoBehaviour
     public AXD_GameRules rules;
     public List<AXD_GameElement> sequence;
 
+    public AXD_AudioManager audioManager;
+
+    public AudioSource musicIntro;
+    public AudioSource musicGame;
+
     [Header("GameState")]
-    public bool gameOver = false;
+    public int defeats;
     public bool gameStarted = true;
 
     [SerializeField] private AXD_GameElement currentElement;
@@ -22,9 +27,22 @@ public class AXD_GameManager : MonoBehaviour
     [SerializeField] private float timeSinceButtonReleased = 0;
     [SerializeField] private float timeSinceButtonBlink = 0;
 
+    [Header ("Button Smash Variables")]
+    public KeyCode KeySmashButton;
+    public int gaugeCurrentScore;
+    public int scorePerSmash;
+    public int scoreReduction;
+    public float scoreReductionFrequency;
+    private bool coroutineStarted;
+    public int[] gaugeStep;
+    public int[] gaugeLedPins;
+    public bool isSmashButtonDone = false;
+  
+
 
     private void Start()
     {
+        defeats = 0;
         foreach (int pin in rules.ledPins)
         {
             UduinoManager.Instance.pinMode(pin, PinMode.Output);
@@ -36,10 +54,18 @@ public class AXD_GameManager : MonoBehaviour
         //StartCoroutine(TestAnalog());
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //TestAnalog();
-        if (!gameOver && gameStarted)
+        /*-- DONE -- game over n'arrête pas le jeu, compter le nombre de défaites 
+        -- DONE (à tester pour être sûr) -- Lancer les audio des elements au début de l'élément
+        -- A TESTER -- Lancer les audio de pause
+        -- A TESTER --Faire l'UI (1 bouton toggle Start/Stop, 1 bouton "penses à continuer le rituel",
+         demander le reste des boutons)
+        -- A FAIRE --Pouvoir lancer la musique / changer de musique quand on a fini l'intro
+        -- A FAIRE -- bouton smash*/
+        
+        if (gameStarted)
         {
             if ((currentElement == null) || 
             currentElementStartingTime + currentElement.elementTime <= Time.time)
@@ -55,18 +81,31 @@ public class AXD_GameManager : MonoBehaviour
                 }
                 currentElement = sequence[currentElementIndex];
 
-                if(currentElement.state == AXD_GameElement.State.On)
+                if(currentElement.state == AXD_GameElement.State.On
+                && currentElement.type == AXD_GameElement.Type.ButtonInstruction)
                 {
+                    //Joue le son du bouton qui s'éteint
+                    StartCoroutine(PlaySource(currentElement.audioBeginningOff.linkedAudioSourceComponent));
+                    Debug.Log("Son début extinction"+currentElement.name);
                     currentElement.SetOff();
                 }
-                else
+                else if(currentElement.state == AXD_GameElement.State.Off
+                && currentElement.type == AXD_GameElement.Type.ButtonInstruction )
                 {
+                    //Joue le son du bouton qui s'allume
+                    StartCoroutine(PlaySource(currentElement.audioBeginningOn.linkedAudioSourceComponent));
+                    Debug.Log("Son début allumage"+currentElement.name);
                     currentElement.SetOn();
                     StartCoroutine(currentElement.Verify());
+
+                }else if (currentElement.type == AXD_GameElement.Type.Pause){
+                    //Si c'est la pause, jouer le texte de la pause
+                    //currentElement.audioBeginningOn.Play();
+                    Debug.Log("Son début allumage"+currentElement.name);
                 }
 
                 currentElementStartingTime = Time.time;
-                Debug.Log("Current element = " + currentElement.name);
+                //Debug.Log("Current element = " + currentElement.name);
 
             }
 
@@ -74,7 +113,7 @@ public class AXD_GameManager : MonoBehaviour
             if (currentElement.type == AXD_GameElement.Type.ButtonInstruction 
             && currentElement.state == AXD_GameElement.State.On)
             {
-                Debug.Log("Anykey ?" + Input.anyKey);
+                //Debug.Log("Anykey ? " + Input.anyKey);
                 if (!(Input.GetKey(currentElement.input)))
                 {
                     Debug.Log("Appuyé ? False");
@@ -106,7 +145,35 @@ public class AXD_GameManager : MonoBehaviour
             {
                 Debug.Log("Pause");
                 timeBeforeNextIntruction = Time.time + currentElement.elementTime;
+                
             }
+            
+            //Si j'appuie, j'augmente le score --DONE--
+            //Si le score dépasse un seuil, j'allume une nouvelle led -- DONE --
+            //Si le dernier seuil est atteint j'arrête la coroutine et j'allume la dernière led -- DONE --
+            //Si, en baissant, le score descend d'un seuil, éteindre la dernière led allumée.
+
+
+
+            if(Input.GetKey(KeySmashButton) && !isSmashButtonDone){
+                
+                gaugeCurrentScore += scorePerSmash;
+                if(!coroutineStarted){
+                    StartCoroutine(SmashCoroutine());
+                }
+                for(int i = 0 ; i<gaugeStep.Length ; i++){
+                    if(gaugeCurrentScore >= gaugeStep[i]){
+                        UduinoManager.Instance.digitalWrite(gaugeLedPins[i], State.HIGH);
+                    }
+                }
+                if(gaugeCurrentScore>=gaugeStep[gaugeStep.Length-1]){
+                    StopCoroutine(SmashCoroutine());
+                    UduinoManager.Instance.digitalWrite(gaugeLedPins[gaugeLedPins.Length-1]);
+                    isSmashButtonDone = true;
+                }
+            }
+            //faire l'allumage des leds en fonction du bouton smash
+
             //Si le joueur rel�che trop longtemps ou n'appuie pas sur le bouton, il perd la partie
             if (timeSinceButtonReleased >= rules.timeToLoseIfButtonIsReleased 
             || timeSinceButtonBlink >= rules.timeToLoseIfButtonIsNotPressed)
@@ -118,14 +185,41 @@ public class AXD_GameManager : MonoBehaviour
     
     public void GameOver()
     {
-        Debug.Log("GameOver");
-        // � d�finir comment on mat�rialise le game over;
-        foreach (int pin in rules.ledPins){
-            UduinoManager.Instance.digitalWrite(pin, State.LOW);
-        }
-        gameOver = true;
+        defeats++;
+        Debug.Log("GameOver : "+defeats);
+        timeSinceButtonReleased = 0;
+        timeSinceButtonBlink = 0;
         
     }
+
+    public void ToggleStartStop(){
+        gameStarted = !gameStarted;
+    }
+
+    public IEnumerator PlaySource(AudioSource source){
+
+        source.enabled = true;
+        yield return new WaitForSeconds(source.clip.length);
+        source.enabled = false;
+    }
+
+    public IEnumerator SmashCoroutine(){
+        coroutineStarted = true;
+        while(gaugeCurrentScore > 0){
+            yield return new WaitForSeconds(1/scoreReductionFrequency);
+            gaugeCurrentScore -= scoreReduction;
+            for(int i = 0 ; i<gaugeStep.Length ; i++){
+                if(gaugeCurrentScore <= gaugeStep[i]){
+                    UduinoManager.Instance.digitalWrite(gaugeLedPins[i], State.LOW);
+                }
+            }
+            
+            
+        }
+        coroutineStarted = false;
+    }
+
+
 
     public IEnumerator TestAnalog(){
         UduinoManager.Instance.pinMode(14, PinMode.Output);

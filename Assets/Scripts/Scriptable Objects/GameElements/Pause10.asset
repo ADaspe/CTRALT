@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124b64a187bc7884ca4cd1b9275441b2, type: 3}
+  m_Name: Pause10
+  m_EditorClassIdentifier: 
+  elementTime: 10
+  type: 0
+  state: 1
+  rules: {fileID: 11400000, guid: 1bd9ba2bc4a1f724180d4bc869db8e4e, type: 2}
+  audioBeginningOn: {fileID: 11400000, guid: c6cdb04535ad1d049b97a90351ccc185, type: 2}
+  audioBeginningOff: {fileID: 0}
+  audioBeginningTimeOn: 0
+  audioBeginningTimeOff: 0
+  timeToPlayAudio: 0
+  buttonChar: 48
+  input: 0
+  ledPin: 0

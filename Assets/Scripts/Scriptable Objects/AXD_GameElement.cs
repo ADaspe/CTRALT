@@ -25,7 +25,10 @@ public class AXD_GameElement : ScriptableObject
     public AXD_GameRules rules;
 
     [Header("Audio")]
-    public AudioSource audio;
+    public AXD_ClipInfos audioBeginningOn;
+    public AXD_ClipInfos audioBeginningOff;
+    public float audioBeginningTimeOn;
+    public float audioBeginningTimeOff;
     public float timeToPlayAudio;
 
     [Header("Arduino")]

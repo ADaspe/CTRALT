@@ -204,7 +204,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd9e3ac1610b03242808b94df527f1b6, type: 2}
   - {fileID: 11400000, guid: fb93602c2cedce140b84e65cd05986af, type: 2}
   - {fileID: 11400000, guid: 4efd0e0eca8f2684da878eda542f1c60, type: 2}
-  gameOver: 0
+  defeats: 0
   gameStarted: 0
   currentElement: {fileID: 0}
   currentElementIndex: 0
